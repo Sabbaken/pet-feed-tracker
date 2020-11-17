@@ -1,0 +1,29 @@
+@import "../settings/all";
+
+.onboarding {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.onboarding__buttons {
+  width: 80%;
+  padding: 10px;
+}
+
+.onboarding__title {
+  text-align: center;
+  @include font-title();
+}
+
+.onboarding__description {
+  @include font-onboarding();
+  text-align: center;
+  max-width: 400px;
+}
+
+.onboarding__image {
+  height: 300px;
+}

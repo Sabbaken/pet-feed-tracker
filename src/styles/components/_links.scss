@@ -1,0 +1,17 @@
+.link {
+  text-decoration: underline;
+}
+
+.link-primary {
+  @include font-primary();
+}
+
+.link-secondary {
+  @include font-secondary();
+}
+
+.link-danger {
+  @include font-primary();
+  font-weight: 500;
+  color: $c-button-danger;
+}

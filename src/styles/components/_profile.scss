@@ -1,0 +1,54 @@
+@import "../settings/all";
+
+.profile {
+  border-radius: 9px;
+  margin: 20px 6px;
+  padding: 24px;
+
+  @include outline-stroke();
+
+  background-color: $c-card-background;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 20px;
+}
+
+.profile__picture {
+  height: 96px;
+  width: 96px;
+  border-radius: 120px;
+
+  grid-area: 1 / 1 / 2 / 2;
+  background-image: url("data:image/ТИП;base64,R0lGODlhAQABAIAAAAAAAP");
+}
+
+.profile__contacts {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.profile__link {
+  grid-area: 2 / 1 / 3 / 3;
+  text-align: center;
+}
+
+.profile__name {
+  @include font-title();
+  margin-bottom: 8px;
+}
+
+.profile__email {
+  @include font-secondary();
+}
+
+.profile__description {
+  @include font-primary();
+
+  grid-area: 2 / 1 / 3 / 3;
+}

@@ -1,0 +1,48 @@
+@import "../settings/all";
+@import "../tools/all";
+
+.tab-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+
+  width: 100%;
+  max-width: 500px;
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  background: $c-tab-bar-background;
+  @include outline-stroke();
+  border-bottom: none;
+}
+
+.tab-bar__wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.tab-bar__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+
+  @include font-navigation();
+  @include remove-user-select();
+}
+
+.navigation__link--current {
+  span {
+    color: $c-text-primary;
+  }
+}
+

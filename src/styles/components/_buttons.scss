@@ -1,0 +1,91 @@
+@import "../settings/all";
+@import "../tools/all";
+
+.btn {
+  margin: 10px 0 0;
+  height: 55px;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+
+  outline: none;
+  border: none;
+
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: $c-button-primary;
+  @include font-button-primary();
+
+  &:hover {
+    background-color: darken($c-button-primary, 3%);
+    transition: all $time-buttons ease;
+  }
+
+  &:active {
+    background-color: darken($c-button-primary, 6%);
+    transition: all $time-buttons ease;
+  }
+}
+
+.btn-secondary {
+  background-color: $c-button-secondary;
+  @include font-button-secondary();
+  box-sizing: border-box;
+  border: 1px solid $c-button-secondary-stroke;
+  &:hover {
+    background-color: darken($c-button-secondary, 3%);
+    transition: all $time-buttons ease;
+  }
+
+  &:active {
+    background-color: darken($c-button-secondary, 6%);
+    transition: all $time-buttons ease;
+  }
+}
+
+
+.btn-danger {
+  background-color: $c-red;
+
+  &:hover {
+    background-color: darken($c-red, 1.5%);
+    transition: all $time-buttons ease;
+  }
+
+  &:active {
+    background-color: darken($c-red, 6%);
+    transition: all $time-buttons ease;
+  }
+}
+
+.btn--loading {
+  transition: color 350ms ease;
+  color: transparent;
+}
+
+.btn--loading:before {
+  width: 24px;
+  height: 24px;
+
+  position: absolute;
+  left: calc(50% - 12px);
+
+  content: '';
+  border-radius: 24px;
+  background-clip: padding-box;
+  border: rgba(255, 255, 255, 0.25) 2px solid;
+  border-top-color: #fff;
+  animation: g-rotating 1250ms linear infinite;
+}
+
+@keyframes g-rotating {
+  100% {
+    transform: rotate(360deg);
+  }
+}

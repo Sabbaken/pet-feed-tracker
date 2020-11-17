@@ -1,0 +1,9 @@
+@import "../settings/all";
+@import "../tools/all";
+
+.back-btn {
+  margin: 26px 0 0 26px;
+  cursor: pointer;
+
+  @include remove-user-select();
+}

@@ -1,0 +1,19 @@
+@import "../settings/all";
+
+.card {
+  border-radius: 9px;
+  margin: 20px 6px;
+  padding: 24px;
+
+  background-color: $c-card-background;
+
+  @include outline-stroke();
+  @include font-primary();
+}
+
+.card__header {
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  @include underline-stroke();
+  @include font-header();
+}

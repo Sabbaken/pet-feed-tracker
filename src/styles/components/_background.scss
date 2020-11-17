@@ -1,0 +1,5 @@
+@import "../settings/all";
+
+.bg-onboarding {
+  @include fullsize_bg_color($c-onboarding-background);
+}

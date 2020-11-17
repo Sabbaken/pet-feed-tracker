@@ -1,0 +1,33 @@
+@import "palette";
+
+// Text
+$c-text-primary: $c-black;
+$c-text-secondary: $c-gray;
+
+// Buttons
+$c-button-primary: $c-green;
+$c-button-secondary: $c-white;
+$c-button-danger: $c-red;
+
+$c-text-button-primary: $c-white;
+$c-text-button-secondary: $c-gray;
+$c-button-secondary-stroke: $c-gray;
+
+// Lines
+$c-outline: $c-gray-light;
+$c-stroke: $c-gray-lighter;
+$c-stroke-input: $c-gray-light;
+
+// Inputs
+$c-input: $c-gray-lighter;
+
+// Cards
+$c-card-background: $c-white;
+
+// Background
+$c-background: $c-blue-lighter;
+$c-tab-bar-background: $c-white;
+$c-onboarding-background: $c-white;
+
+// Loader
+$c-loader: $c-gray;

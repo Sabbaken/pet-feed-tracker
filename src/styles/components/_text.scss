@@ -1,0 +1,13 @@
+@import "../settings/all";
+
+.text {
+  margin: 10px 0;
+}
+
+.text-primary {
+  @include font-primary();
+}
+
+.text-secondary {
+  @include font-secondary();
+}

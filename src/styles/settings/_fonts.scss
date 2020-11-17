@@ -1,0 +1,66 @@
+$font-default: roboto, sans-serif;
+
+// texts
+@mixin font-primary {
+  color: $c-text-primary;
+  font-family: $font-default;
+  font-size: 15px;
+  line-height: 140%;
+  text-decoration: none;
+}
+
+@mixin font-secondary {
+  color: $c-text-secondary;
+  font-family: $font-default;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+// titles headers
+@mixin font-header {
+  color: $c-text-primary;
+  font-family: $font-default;
+  font-size: 19px;
+  letter-spacing: -3.5%;
+}
+
+@mixin font-title {
+  color: $c-text-primary;
+  font-family: $font-default;
+  line-height: 200%;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+// buttons
+@mixin font-button-primary {
+  color: $c-text-button-primary;
+  font-family: $font-default;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@mixin font-button-secondary {
+  color: $c-text-button-secondary;
+  font-family: $font-default;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+@mixin font-navigation {
+  color: $c-text-primary;
+  font-family: $font-default;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@mixin font-onboarding {
+  color: $c-text-secondary;
+  font-family: $font-default;
+  font-size: 18px;
+  line-height: 150%;
+  font-weight: 400;
+}
+

@@ -1,0 +1,32 @@
+@import "../settings/all";
+
+.input {
+  margin: 10px 0;
+}
+
+.input__input {
+  margin-top: 2px;
+  padding: 5px 10px;
+  height: 40px;
+  width: 100%;
+  background-color: $c-input;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+
+  @include font-primary();
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus {
+    border: 2px solid $c-stroke-input;
+  }
+}
+
+.input__label {
+  margin-left: 10px;
+  @include font-primary();
+}
