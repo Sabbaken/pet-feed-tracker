@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { history } from '../../App';
+import history from '../../history';
 
 export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
   const firebase = getFirebase();
@@ -12,8 +12,9 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
 
       firebase.auth().signInWithPopup(authProvider)
       .then(() => {
-        history.push("/");
+        history.push('/');
         dispatch({ type: 'LOGIN_SUCCESS' });
+        window.location.reload();
       })
       .catch((error) => {
         toast.error('Что-то пошло не так');
@@ -24,8 +25,9 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
     case 'anonymous':
       firebase.auth().signInAnonymously()
       .then(() => {
-        history.push("/");
+        history.push('/pets');
         dispatch({ type: 'LOGIN_SUCCESS' });
+        window.location.reload();
       })
       .catch((error) => {
         toast.error('Что-то пошло не так');
