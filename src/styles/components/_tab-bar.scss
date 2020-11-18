@@ -39,10 +39,3 @@
   @include font-navigation();
   @include remove-user-select();
 }
-
-.navigation__link--current {
-  span {
-    color: $c-text-primary;
-  }
-}
-

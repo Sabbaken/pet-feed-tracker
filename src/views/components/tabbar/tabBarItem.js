@@ -13,6 +13,7 @@ const TabBarItem = ({ label, icon, route, exact = false }) => {
     icon: {
       height: '27px',
       width: '27px',
+      marginBottom: '2px',
       backgroundRepeat: 'no-repeat',
       backgroundImage: `url(${icon})`,
     },
