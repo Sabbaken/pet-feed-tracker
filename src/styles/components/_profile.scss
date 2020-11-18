@@ -16,8 +16,8 @@
 }
 
 .profile__picture {
-  height: 96px;
-  width: 96px;
+  height: 70px;
+  width: 70px;
   border-radius: 120px;
 
   grid-area: 1 / 1 / 2 / 2;
@@ -39,7 +39,7 @@
 }
 
 .profile__name {
-  @include font-title();
+  @include font-header();
   margin-bottom: 8px;
 }
 
