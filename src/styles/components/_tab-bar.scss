@@ -31,10 +31,10 @@
 .tab-bar__item {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
+  text-align: center;
   width: 55px;
-  height: 55px;
 
   @include font-navigation();
   @include remove-user-select();
