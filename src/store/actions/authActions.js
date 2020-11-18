@@ -9,12 +9,10 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
   switch (provider) {
     case 'google':
       firebase.auth().useDeviceLanguage();
-
       firebase.auth().signInWithPopup(authProvider)
       .then(() => {
         history.push('/');
         dispatch({ type: 'LOGIN_SUCCESS' });
-        window.location.reload();
       })
       .catch((error) => {
         toast.error('Что-то пошло не так');
@@ -27,7 +25,6 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
       .then(() => {
         history.push('/');
         dispatch({ type: 'LOGIN_SUCCESS' });
-        window.location.reload();
       })
       .catch((error) => {
         toast.error('Что-то пошло не так');

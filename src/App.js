@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import {Route, Switch, Router } from 'react-router'
-import { ToastContainer } from 'react-toastify';
+import { Route, Router } from 'react-router-dom';
+import store from './store';
 import { Provider } from 'react-redux';
 import firebase from './firebase/firebase'
-import store from './store';
 import './styles/main.scss';
 import history from './history';
 import Onboarding from './views/pages/onboarding';
 import Main from './views/pages/main';
 import Loader from './views/components/loader';
-
-
+import Settings from './views/pages/settings';
 
 function App() {
   const [authentication, setAuthState] = useState({
@@ -42,14 +40,13 @@ function App() {
 
   return (
     <>
-      <Provider store={store}>
-        <Router history={history}>
-          <Switch>
-            <Route path="/" exact component={Main}/>
-            <Route path="/onboarding" component={Onboarding}/>
-          </Switch>
-        </Router>
-      </Provider>
+      <Router history={history}>
+        <Provider store={store}>
+          <Route exact path="/" component={Main}/>
+          <Route exact path="/onboarding" component={Onboarding}/>
+          <Route exact path="/settings" component={Settings}/>
+        </Provider>
+      </Router>
     </>
   );
 }

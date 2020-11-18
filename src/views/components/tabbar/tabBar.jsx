@@ -9,7 +9,7 @@ const TabBar = () => (
         <TabBarItem
           label="Главная"
           icon="/images/icons/home.svg"
-          route="/pets"
+          route="/"
           exact
         />
 
