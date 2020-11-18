@@ -25,7 +25,7 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
     case 'anonymous':
       firebase.auth().signInAnonymously()
       .then(() => {
-        history.push('/pets');
+        history.push('/');
         dispatch({ type: 'LOGIN_SUCCESS' });
         window.location.reload();
       })

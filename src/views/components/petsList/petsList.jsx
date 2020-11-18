@@ -12,6 +12,11 @@ const PetsList = () => {
       <Loader/>
     );
   }
+
+  if (pets === undefined) {
+    pets = [];
+  }
+
   return (
     <div>
       {pets.map((pet) => <PetItem key={pet.id} pet={pet}/>)}
