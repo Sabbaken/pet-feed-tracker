@@ -1,7 +1,6 @@
 @import "../settings/all";
 
 .text {
-  margin: 10px 0;
 }
 
 .text-primary {
@@ -11,3 +10,8 @@
 .text-secondary {
   @include font-secondary();
 }
+
+.text-header {
+  @include font-header();
+}
+

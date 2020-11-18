@@ -1,3 +1,35 @@
 .pet-card {
+}
 
+.pet-card__top {
+  height: 60px;
+  display: grid;
+  grid-template-columns: auto 2fr auto;
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0;
+
+  align-items: center;
+}
+
+.pet-card__photo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+}
+
+.pet-card__toggle {
+  margin-left: auto;
+  transition-duration: .3s;
+}
+
+.pet-card__toggle--opened {
+  transition-duration: .3s;
+  transform: rotate(180deg);
+}
+
+.pet-card__bottom {
+  box-sizing: content-box;
+  margin-top: 16px;
+  border-top: $stroke;
 }

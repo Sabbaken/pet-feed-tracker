@@ -5,7 +5,7 @@
   margin: 20px 6px;
   padding: 24px;
 
-  @include outline-stroke();
+  @include outline();
 
   background-color: $c-card-background;
 

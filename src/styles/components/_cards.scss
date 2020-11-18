@@ -7,13 +7,6 @@
 
   background-color: $c-card-background;
 
-  @include outline-stroke();
+  @include outline();
   @include font-primary();
-}
-
-.card__header {
-  padding-bottom: 8px;
-  margin-bottom: 20px;
-  @include underline-stroke();
-  @include font-header();
 }

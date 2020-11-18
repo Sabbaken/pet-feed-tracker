@@ -20,8 +20,10 @@ $font-default: roboto, sans-serif;
 @mixin font-header {
   color: $c-text-primary;
   font-family: $font-default;
-  font-size: 19px;
-  letter-spacing: -3.5%;
+  font-size: medium;
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 150%;
 }
 
 @mixin font-title {

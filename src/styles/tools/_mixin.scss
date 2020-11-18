@@ -1,8 +1,4 @@
-@mixin underline-stroke {
-  border-bottom: 2px solid $c-stroke;
-}
-
-@mixin outline-stroke {
+@mixin outline {
   border: 1px solid $c-outline;
 }
 

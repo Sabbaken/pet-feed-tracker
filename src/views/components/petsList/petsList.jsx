@@ -14,7 +14,7 @@ const PetsList = () => {
   }
   return (
     <div>
-      {pets.map((pet) => <PetItem pet={pet}/>)}
+      {pets.map((pet) => <PetItem key={pet.id} pet={pet}/>)}
     </div>
   );
 };
