@@ -1,14 +1,14 @@
 import React from 'react';
-import PetsList from '../components/petsList/petsList';
+import ArticlesList from '../components/articles/articlesList';
 import TabBar from '../components/tabbar/tabBar';
 
-const Main = () => (
+const Articles = () => (
   <>
     <div className="content">
-      <PetsList/>
+      <ArticlesList/>
     </div>
     <TabBar/>
   </>
 );
 
-export default Main;
+export default Articles;

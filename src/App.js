@@ -9,6 +9,7 @@ import Onboarding from './views/pages/onboarding';
 import Main from './views/pages/main';
 import Loader from './views/components/loader';
 import Settings from './views/pages/settings';
+import Articles from './views/pages/articles';
 
 function App() {
   const [authentication, setAuthState] = useState({
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/" component={Main}/>
           <Route exact path="/onboarding" component={Onboarding}/>
           <Route exact path="/settings" component={Settings}/>
+          <Route exact path="/articles" component={Articles}/>
         </Provider>
       </Router>
     </>
