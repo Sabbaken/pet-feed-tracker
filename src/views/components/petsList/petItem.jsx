@@ -11,7 +11,7 @@ const PetItem = ({ pet }) => {
       collapsed
       render={({ toggle, toggleState, setCollapsibleElement }) => (
         <Card>
-          <div className="pet-card__top" onClick={toggle}>
+          <div className="pet-card__top clickable" onClick={toggle}>
             <img
               src="https://firebasestorage.googleapis.com/v0/b/pet-feed-tracker.appspot.com/o/pets-profile-pictures%2Fcat.png?alt=media&token=11cef281-594d-44c7-b945-f63666cead13"
               alt="cat"

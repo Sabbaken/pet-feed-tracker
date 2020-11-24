@@ -8,6 +8,22 @@
   margin: 0 auto;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+}
+
 body {
   background-color: $c-background;
 }
