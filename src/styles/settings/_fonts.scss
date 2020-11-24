@@ -66,3 +66,10 @@ $font-default: roboto, sans-serif;
   font-weight: 400;
 }
 
+@mixin font-counter {
+  color: $c-text-primary;
+  font-family: $font-default;
+  font-size: 20px;
+  font-weight: 500;
+}
+

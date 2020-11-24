@@ -1,5 +1,6 @@
 const initialState = {
   pets: [],
+  posting: false
 };
 
 export default (state = initialState, action) => {
@@ -14,6 +15,24 @@ export default (state = initialState, action) => {
     case 'FETCH_INITIAL_ERROR':
       return {
         ...state,
+      };
+
+    case 'ADD_FEED_SUCCESS':
+      return {
+        ...state,
+        posting: false
+      };
+
+    case 'ADD_FEED_START':
+      return {
+        ...state,
+        posting: true
+      };
+
+    case 'ADD_FEED_ERROR':
+      return {
+        ...state,
+        posting: false
       };
 
     default:

@@ -1,9 +1,10 @@
 import React from 'react';
 import SlideToggle from 'react-slide-toggle';
 import Card from '../cards/card';
+import Counter from '../counter';
 
 const PetItem = ({ pet }) => {
-  const { name, feeds } = pet;
+  const { name, feeds, id } = pet;
 
   return (
     <SlideToggle
@@ -27,18 +28,7 @@ const PetItem = ({ pet }) => {
           </div>
 
           <div className="pet-card__bottom" ref={setCollapsibleElement}>
-            <div>
-              календарь
-              <br/>
-              <br/>
-              ======
-            </div>
-            <div>
-              кнопочки
-              <br/>
-              <br/>
-              ======
-            </div>
+            <Counter petId={id}/>
           </div>
         </Card>
       )}
