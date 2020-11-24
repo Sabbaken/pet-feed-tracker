@@ -35,6 +35,16 @@ export default (state = initialState, action) => {
         posting: false
       };
 
+    case 'ADD_PET_SUCCESS':
+      return {
+        ...state,
+      };
+
+    case 'ADD_PET_ERROR':
+      return {
+        ...state,
+      };
+
     default:
       return state;
   }

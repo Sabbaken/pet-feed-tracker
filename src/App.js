@@ -10,6 +10,7 @@ import Main from './views/pages/main';
 import Loader from './views/components/loader';
 import Settings from './views/pages/settings';
 import Articles from './views/pages/articles';
+import newPet from './views/pages/newPet';
 
 function App() {
   const [authentication, setAuthState] = useState({
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/onboarding" component={Onboarding}/>
           <Route exact path="/settings" component={Settings}/>
           <Route exact path="/articles" component={Articles}/>
+          <Route exact path="/add" component={newPet}/>
         </Provider>
       </Router>
     </>

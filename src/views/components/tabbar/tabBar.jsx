@@ -21,6 +21,13 @@ const TabBar = () => (
         />
 
         <TabBarItem
+          label="Питомец"
+          icon="/images/icons/plus-square.svg"
+          route="/add"
+          exact
+        />
+
+        <TabBarItem
           label="Настройки"
           icon="/images/icons/settings.svg"
           route="/settings"
