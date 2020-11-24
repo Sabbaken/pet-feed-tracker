@@ -15,6 +15,14 @@ $font-default: roboto, sans-serif;
   font-size: 15px;
   text-decoration: none;
 }
+// links
+@mixin font-link-primary {
+  color: $c-link-primary;
+  font-family: $font-default;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
 
 // titles headers
 @mixin font-header {

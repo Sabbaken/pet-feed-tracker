@@ -3,7 +3,7 @@
 }
 
 .link-primary {
-  @include font-primary();
+  @include font-link-primary();
 }
 
 .link-secondary {
