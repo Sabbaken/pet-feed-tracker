@@ -23,7 +23,7 @@ export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, ge
 
   userDockRef.get()
   .then((doc) => {
-    if (doc.data() !== undefined) {
+    if (doc.data() === undefined) {
       dispatch({ type: 'ADD_FEED_ERROR' });
       toast.success('Изменения не сохранены');
     }
