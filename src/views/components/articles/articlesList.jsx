@@ -24,9 +24,7 @@ const ArticlesList = () => {
 
   return (
     <>
-      {articles.map((article) => {
-        return <Article article={article} key={article.id}/>;
-      })}
+      {articles.map((article) => <Article article={article} key={article.id}/>)}
     </>
   );
 };

@@ -27,6 +27,10 @@
   border-top-left-radius: 9px;
 }
 
+.article__image-wrapper {
+  min-height: 180px;
+}
+
 .article__title {
   grid-area: 2 / 1 / 3 / 2;
 }

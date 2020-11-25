@@ -8,7 +8,9 @@ const Article = ({ article }) => {
       collapsed
       render={({ toggle, toggleState, setCollapsibleElement }) => (
         <div className="article">
-          <img className="article__image clickable" onClick={toggle} src={photo} alt="" />
+          <div className="article__image-wrapper clickable" onClick={toggle}>
+            <img className="article__image" src={photo} alt="" />
+          </div>
 
           <div className="article__top clickable" onClick={toggle}>
             <div className="article__title">
