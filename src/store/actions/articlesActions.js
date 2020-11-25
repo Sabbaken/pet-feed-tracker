@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { FETCH_ARTICLES_SUCCESS } from '../reducers/articlesReducer';
+import { FETCH_ARTICLES_SUCCESS } from '../../constants/actionTypes';
 
 export const fetchArticles = (provider) => (dispatch, getState, { getFirestore }) => {
   const firestore = getFirestore();
