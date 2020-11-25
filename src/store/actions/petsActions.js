@@ -9,7 +9,7 @@ export const fetchFeedsByDays = (petId) => (dispatch, getState, { getFirebase, g
     dispatch({ type: 'FETCH_FEEDS_BY_DAYS_ERROR' });
   }
 
-  dispatch({ type: 'FETCH_FEEDS_BY_DAYS_SUCCESS', payload: feeds });
+  dispatch({ type: 'FETCH_FEEDS_BY_DAYS_SUCCESS', payload: { feeds, petId } });
 };
 
 export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -17,6 +17,7 @@ export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, ge
 
   const firestore = getFirestore();
   const uid = state.firebase.auth.uid;
+
   dispatch({ type: 'ADD_FEED_START' });
   const userDockRef = firestore.collection('users').doc(uid);
 
@@ -38,7 +39,9 @@ export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, ge
 
     userDockRef.set(updatedDoc)
     .then(() => {
-      dispatch({ type: 'ADD_FEED_SUCCESS', payload: { timestamp, amount } });
+      let feeds = state.firebase.profile.pets[petId].feeds;
+      feeds.push({ timestamp, amount })
+      dispatch({ type: 'ADD_FEED_SUCCESS', payload: { feeds, petId } });
     }).catch((error) => {
       dispatch({ type: 'ADD_FEED_ERROR', payload: error });
       toast.success('Изменения не сохранены');

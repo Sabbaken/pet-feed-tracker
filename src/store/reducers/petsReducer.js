@@ -8,6 +8,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
+  let feedsByDays;
 
   switch (type) {
     case 'FETCH_INITIAL_SUCCESS':
@@ -21,10 +22,12 @@ export default (state = initialState, action) => {
       };
 
     case 'ADD_FEED_SUCCESS':
+      feedsByDays = sortFeedsByDaysOfWeek(payload.feeds);
+
       return {
         ...state,
-        feedsByDays: {},
-        posting: false
+        posting: false,
+        feedsByDays: { [payload.petId]: [...feedsByDays] }
       };
 
     case 'ADD_FEED_START':
@@ -50,11 +53,11 @@ export default (state = initialState, action) => {
       };
 
     case 'FETCH_FEEDS_BY_DAYS_SUCCESS':
-      const feedsByDays = sortFeedsByDaysOfWeek(payload);
+      feedsByDays = sortFeedsByDaysOfWeek(payload.feeds);
 
       return {
         ...state,
-        feedsByDays
+        feedsByDays: { [payload.petId]: [...feedsByDays] }
       };
 
     case 'FETCH_FEEDS_BY_DAYS_ERROR':

@@ -2,13 +2,13 @@ import { rotateArray } from './rotateArray';
 
 export const sortFeedsByDaysOfWeek = (feeds) => {
   let feedsByDays = [
+    { name: 'Вс', feeds: [] },
     { name: 'Пн', feeds: [] },
     { name: 'Вт', feeds: [] },
     { name: 'Ср', feeds: [] },
     { name: 'Чт', feeds: [] },
     { name: 'Пт', feeds: [] },
     { name: 'Сб', feeds: [] },
-    { name: 'Вс', feeds: [] },
   ];
 
   let today = new Date();
@@ -23,7 +23,6 @@ export const sortFeedsByDaysOfWeek = (feeds) => {
     }
   })
 
-  feedsByDays = rotateArray(feedsByDays, today.getDay());
-
+  feedsByDays = rotateArray(feedsByDays, today.getDay() + 1);
   return feedsByDays;
 }

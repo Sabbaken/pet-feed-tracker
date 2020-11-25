@@ -1,0 +1,34 @@
+@import "../settings/all";
+
+.calendar__wrapper {
+  padding: 30px 0 16px;
+  border-bottom: $stroke;
+}
+
+.calendar {
+  min-height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.calendar__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.calendar__week-day {
+}
+
+.calendar__line {
+  margin: 10px 0;
+  width: 0;
+  border-left: 5px solid $c-calendar-line;
+  border-radius: 6px;
+}
+
+.calendar__number {
+  @include font-secondary();
+}
