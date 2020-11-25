@@ -1,5 +1,7 @@
+import { rotateArray } from './rotateArray';
+
 export const sortFeedsByDaysOfWeek = (feeds) => {
-  const feedsByDays = [
+  let feedsByDays = [
     { name: 'Пн', feeds: [] },
     { name: 'Вт', feeds: [] },
     { name: 'Ср', feeds: [] },
@@ -15,11 +17,13 @@ export const sortFeedsByDaysOfWeek = (feeds) => {
   // feeds from past week by days of the week
   feeds.map((feed) => {
     feed.date = new Date(feed.timestamp);
-    if ( feed.date > weekFromNow) {
+    if (feed.date > weekFromNow) {
       feedsByDays[feed.date.getDay()].feeds.push(feed);
       return feed;
     }
   })
+
+  feedsByDays = rotateArray(feedsByDays, today.getDay());
 
   return feedsByDays;
 }
