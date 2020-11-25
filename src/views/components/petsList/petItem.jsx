@@ -2,6 +2,7 @@ import React from 'react';
 import SlideToggle from 'react-slide-toggle';
 import Card from '../cards/card';
 import Counter from '../counter';
+import Calendar from '../calendar/calendar';
 
 const PetItem = ({ pet }) => {
   const { name, feeds, id } = pet;
@@ -24,11 +25,12 @@ const PetItem = ({ pet }) => {
 
             <img src="./images/icons/chevron-down.svg"
                  alt="arrow"
-                 className={toggleState === "EXPANDED" || toggleState === "EXPANDING" ? "pet-card__toggle pet-card__toggle--opened" : "pet-card__toggle"}/>
+                 className={toggleState === "EXPANDED" || toggleState === "EXPANDING" ? "pet-card__toggle pet-card__toggle--opened" : "pet-card__toggle"} />
           </div>
 
           <div className="pet-card__bottom" ref={setCollapsibleElement}>
-            <Counter petId={id}/>
+            <Calendar petId={id} />
+            <Counter petId={id} />
           </div>
         </Card>
       )}

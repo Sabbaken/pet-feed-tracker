@@ -1,10 +1,13 @@
+import { sortFeedsByDaysOfWeek } from '../../helpers/sortFeedsByDaysOfWeek';
+
 const initialState = {
   pets: [],
-  posting: false
+  posting: false,
+  feedsByDays: {}
 };
 
 export default (state = initialState, action) => {
-  const { type } = action;
+  const { type, payload } = action;
 
   switch (type) {
     case 'FETCH_INITIAL_SUCCESS':
@@ -20,6 +23,7 @@ export default (state = initialState, action) => {
     case 'ADD_FEED_SUCCESS':
       return {
         ...state,
+        feedsByDays: {},
         posting: false
       };
 
@@ -41,6 +45,19 @@ export default (state = initialState, action) => {
       };
 
     case 'ADD_PET_ERROR':
+      return {
+        ...state,
+      };
+
+    case 'FETCH_FEEDS_BY_DAYS_SUCCESS':
+      const feedsByDays = sortFeedsByDaysOfWeek(payload);
+
+      return {
+        ...state,
+        feedsByDays
+      };
+
+    case 'FETCH_FEEDS_BY_DAYS_ERROR':
       return {
         ...state,
       };

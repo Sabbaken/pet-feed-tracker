@@ -1,8 +1,15 @@
 import { toast } from 'react-toastify';
 import history from '../../history';
 
-export const fetchInitialData = () => (dispatch, getState, { getFirebase, getFirestore }) => {
+export const fetchFeedsByDays = (petId) => (dispatch, getState, { getFirebase, getFirestore }) => {
+  const state = getState();
+  const feeds = state.firebase.profile.pets[petId].feeds;
 
+  if (feeds === undefined) {
+    dispatch({ type: 'FETCH_FEEDS_BY_DAYS_ERROR' });
+  }
+
+  dispatch({ type: 'FETCH_FEEDS_BY_DAYS_SUCCESS', payload: feeds });
 };
 
 export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -64,7 +71,7 @@ export const addNewPet = (name) => (dispatch, getState, { getFirebase, getFirest
     }
 
     const newPetId = updatedDoc.pets.length
-    updatedDoc.pets.push({ id: newPetId, name,  feeds: []});
+    updatedDoc.pets.push({ id: newPetId, name, feeds: [] });
 
     userDockRef.set(updatedDoc)
     .then(() => {
