@@ -1,3 +1,8 @@
+import {
+  FETCH_ARTICLES_ERROR,
+  FETCH_ARTICLES_SUCCESS
+} from '../../constants/actionTypes';
+
 const initialState = {
   articles: [],
 };
@@ -6,13 +11,13 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case 'FETCH_ARTICLES_SUCCESS':
+    case FETCH_ARTICLES_SUCCESS:
       return {
         ...state,
         articles: payload,
       };
 
-    case 'FETCH_ARTICLES_ERROR':
+    case FETCH_ARTICLES_ERROR:
       return {
         ...state,
         error: payload,

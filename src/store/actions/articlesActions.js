@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import { FETCH_ARTICLES_SUCCESS } from '../reducers/articlesReducer';
 
 export const fetchArticles = (provider) => (dispatch, getState, { getFirestore }) => {
   const firestore = getFirestore();
@@ -8,7 +9,7 @@ export const fetchArticles = (provider) => (dispatch, getState, { getFirestore }
   .then((snapshot) => {
     const articles = [];
     snapshot.docs.map(doc => articles.push({ ...doc.data(), id: doc.id }))
-    dispatch({ type: 'FETCH_ARTICLES_SUCCESS', payload: articles });
+    dispatch({ type: FETCH_ARTICLES_SUCCESS, payload: articles });
     toast.error('Не удалось загрузить статьи');
   }).catch((error) => {
     dispatch({ type: 'FETCH_ARTICLES_ERROR', payload: error });

@@ -1,5 +1,11 @@
 import { toast } from 'react-toastify';
 import history from '../../history';
+import {
+  LOGIN_ERROR,
+  LOGIN_SUCCESS,
+  SIGNOUT_ERROR,
+  SIGNOUT_SUCCESS
+} from '../../constants/actionTypes';
 
 export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
   const firebase = getFirebase();
@@ -12,11 +18,11 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
       firebase.auth().signInWithPopup(authProvider)
       .then(() => {
         history.push('/');
-        dispatch({ type: 'LOGIN_SUCCESS' });
+        dispatch({ type: LOGIN_SUCCESS });
       })
       .catch((error) => {
         toast.error('Что-то пошло не так');
-        dispatch({ type: 'LOGIN_ERROR', payload: error });
+        dispatch({ type: LOGIN_ERROR, payload: error });
       });
       break;
 
@@ -24,11 +30,11 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
       firebase.auth().signInAnonymously()
       .then(() => {
         history.push('/');
-        dispatch({ type: 'LOGIN_SUCCESS' });
+        dispatch({ type: LOGIN_SUCCESS });
       })
       .catch((error) => {
         toast.error('Что-то пошло не так');
-        dispatch({ type: 'LOGIN_ERROR', payload: error });
+        dispatch({ type: LOGIN_ERROR, payload: error });
       });
       break;
 
@@ -42,10 +48,10 @@ export const signOut = () => (dispatch, getState, { getFirebase }) => {
 
   firebase.auth().signOut()
   .then(() => {
-    dispatch({ type: 'SIGNOUT_SUCCESS' });
+    dispatch({ type: SIGNOUT_SUCCESS });
   })
   .catch((error) => {
     toast.error('Что-то пошло не так');
-    dispatch({ type: 'SIGNOUT_ERROR', payload: error });
+    dispatch({ type: SIGNOUT_ERROR, payload: error });
   });
 };

@@ -1,15 +1,24 @@
 import { toast } from 'react-toastify';
 import history from '../../history';
+import {
+  ADD_FEED_ERROR,
+  ADD_FEED_START,
+  ADD_FEED_SUCCESS,
+  ADD_PET_ERROR,
+  ADD_PET_SUCCESS,
+  FETCH_FEEDS_BY_DAYS_ERROR,
+  FETCH_FEEDS_BY_DAYS_SUCCESS
+} from '../../constants/actionTypes';
 
 export const fetchFeedsByDays = (petId) => (dispatch, getState, { getFirebase, getFirestore }) => {
   const state = getState();
   const feeds = state.firebase.profile.pets[petId].feeds;
 
   if (feeds === undefined) {
-    dispatch({ type: 'FETCH_FEEDS_BY_DAYS_ERROR' });
+    dispatch({ type: FETCH_FEEDS_BY_DAYS_ERROR });
   }
 
-  dispatch({ type: 'FETCH_FEEDS_BY_DAYS_SUCCESS', payload: { feeds, petId } });
+  dispatch({ type: FETCH_FEEDS_BY_DAYS_SUCCESS, payload: { feeds, petId } });
 };
 
 export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, getFirestore }) => {
@@ -18,13 +27,13 @@ export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, ge
   const firestore = getFirestore();
   const uid = state.firebase.auth.uid;
 
-  dispatch({ type: 'ADD_FEED_START' });
+  dispatch({ type: ADD_FEED_START });
   const userDockRef = firestore.collection('users').doc(uid);
 
   userDockRef.get()
   .then((doc) => {
     if (doc.data() === undefined) {
-      dispatch({ type: 'ADD_FEED_ERROR' });
+      dispatch({ type: ADD_FEED_ERROR });
       toast.success('Изменения не сохранены');
     }
 
@@ -41,14 +50,14 @@ export const addFeed = (amount, petId) => (dispatch, getState, { getFirebase, ge
     .then(() => {
       let feeds = state.firebase.profile.pets[petId].feeds;
       feeds.push({ timestamp, amount })
-      dispatch({ type: 'ADD_FEED_SUCCESS', payload: { feeds, petId } });
+      dispatch({ type: ADD_FEED_SUCCESS, payload: { feeds, petId } });
     }).catch((error) => {
-      dispatch({ type: 'ADD_FEED_ERROR', payload: error });
+      dispatch({ type: ADD_FEED_ERROR, payload: error });
       toast.success('Изменения не сохранены');
     })
   })
   .catch((error) => {
-    dispatch({ type: 'ADD_FEED_ERROR', payload: error });
+    dispatch({ type: ADD_FEED_ERROR, payload: error });
     console.error('нет такого дока userDockRef');
   });
 };
@@ -63,7 +72,7 @@ export const addNewPet = (name) => (dispatch, getState, { getFirebase, getFirest
   userDockRef.get()
   .then((doc) => {
     if (doc.data() !== undefined) {
-      dispatch({ type: 'ADD_PET_ERROR' });
+      dispatch({ type: ADD_PET_ERROR });
       toast.success('Изменения не сохранены');
     }
 
@@ -78,15 +87,15 @@ export const addNewPet = (name) => (dispatch, getState, { getFirebase, getFirest
 
     userDockRef.set(updatedDoc)
     .then(() => {
-      dispatch({ type: 'ADD_PET_SUCCESS' });
+      dispatch({ type: ADD_PET_SUCCESS });
       history.push('/');
     }).catch((error) => {
-      dispatch({ type: 'ADD_PET_ERROR', payload: error });
+      dispatch({ type: ADD_PET_ERROR, payload: error });
       toast.success('Изменения не сохранены');
     })
   })
   .catch((error) => {
-    dispatch({ type: 'ADD_PET_ERROR', payload: error });
+    dispatch({ type: ADD_PET_ERROR, payload: error });
     console.error('нет такого дока userDockRef');
   });
 };
