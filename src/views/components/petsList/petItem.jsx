@@ -3,9 +3,16 @@ import SlideToggle from 'react-slide-toggle';
 import Card from '../cards/card';
 import Counter from '../counter';
 import Calendar from '../calendar/calendar';
+import TimeAgo from 'javascript-time-ago';
+import ru from 'javascript-time-ago/locale/ru';
 
 const PetItem = ({ pet }) => {
   const { name, feeds, id } = pet;
+  const lastFed = feeds[feeds.length - 1];
+
+  TimeAgo.addLocale(ru);
+  const timeAgo = new TimeAgo('ru-RU');
+  const lastFedString = timeAgo.format(new Date(lastFed.timestamp));
 
   return (
     <SlideToggle
@@ -20,17 +27,17 @@ const PetItem = ({ pet }) => {
 
             <div>
               <div className="text text-header">{name}</div>
-              <div className="text text-secondary">кормили 2 часа назад</div>
+              <div className="text text-secondary">кормили {lastFedString}</div>
             </div>
 
             <img src="./images/icons/chevron-down.svg"
                  alt="arrow"
-                 className={toggleState === "EXPANDED" || toggleState === "EXPANDING" ? "pet-card__toggle pet-card__toggle--opened" : "pet-card__toggle"} />
+                 className={toggleState === "EXPANDED" || toggleState === "EXPANDING" ? "pet-card__toggle pet-card__toggle--opened" : "pet-card__toggle"}/>
           </div>
 
           <div className="pet-card__bottom" ref={setCollapsibleElement}>
-            <Calendar petId={id} />
-            <Counter petId={id} />
+            <Calendar petId={id}/>
+            <Counter petId={id}/>
           </div>
         </Card>
       )}
