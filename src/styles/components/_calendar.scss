@@ -27,6 +27,7 @@
   width: 0;
   border-left: 5px solid $c-calendar-line;
   border-radius: 6px;
+  transition: height 0.5s ease-out;
 }
 
 .calendar__number {
