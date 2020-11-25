@@ -12,7 +12,10 @@ const PetItem = ({ pet }) => {
 
   TimeAgo.addLocale(ru);
   const timeAgo = new TimeAgo('ru-RU');
-  const lastFedString = timeAgo.format(new Date(lastFed.timestamp));
+  let lastFedString = '0 мин назад';
+  if (lastFed !== undefined) {
+    lastFedString = timeAgo.format(new Date(lastFed.timestamp));
+  }
 
   return (
     <SlideToggle
