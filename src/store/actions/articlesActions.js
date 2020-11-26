@@ -6,12 +6,12 @@ export const fetchArticles = (provider) => (dispatch, getState, { getFirestore }
   const articlesCollection = firestore.collection('articles');
 
   articlesCollection.get()
-  .then((snapshot) => {
-    const articles = [];
-    snapshot.docs.map(doc => articles.push({ ...doc.data(), id: doc.id }))
-    dispatch({ type: FETCH_ARTICLES_SUCCESS, payload: articles });
-    toast.error('Не удалось загрузить статьи');
-  }).catch((error) => {
-    dispatch({ type: 'FETCH_ARTICLES_ERROR', payload: error });
-  });
+    .then((snapshot) => {
+      const articles = [];
+      snapshot.docs.map((doc) => articles.push({ ...doc.data(), id: doc.id }));
+      dispatch({ type: FETCH_ARTICLES_SUCCESS, payload: articles });
+      toast.error('Не удалось загрузить статьи');
+    }).catch((error) => {
+      dispatch({ type: 'FETCH_ARTICLES_ERROR', payload: error });
+    });
 };

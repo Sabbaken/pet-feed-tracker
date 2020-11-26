@@ -4,7 +4,7 @@ import {
   LOGIN_ERROR,
   LOGIN_SUCCESS,
   SIGNOUT_ERROR,
-  SIGNOUT_SUCCESS
+  SIGNOUT_SUCCESS,
 } from '../../constants/actionTypes';
 
 export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
@@ -14,44 +14,57 @@ export const signin = (provider) => (dispatch, getState, { getFirebase }) => {
 
   switch (provider) {
     case 'google':
-      firebase.auth().useDeviceLanguage();
-      firebase.auth().signInWithPopup(authProvider)
-      .then(() => {
-        history.push('/');
-        dispatch({ type: LOGIN_SUCCESS });
-      })
-      .catch((error) => {
-        toast.error('Что-то пошло не так');
-        dispatch({ type: LOGIN_ERROR, payload: error });
-      });
+      firebase.auth()
+        .useDeviceLanguage();
+      firebase.auth()
+        .signInWithPopup(authProvider)
+        .then(() => {
+          history.push('/');
+          dispatch({ type: LOGIN_SUCCESS });
+        })
+        .catch((error) => {
+          toast.error('Что-то пошло не так');
+          dispatch({
+            type: LOGIN_ERROR,
+            payload: error,
+          });
+        });
       break;
 
     case 'anonymous':
-      firebase.auth().signInAnonymously()
-      .then(() => {
-        history.push('/');
-        dispatch({ type: LOGIN_SUCCESS });
-      })
-      .catch((error) => {
-        toast.error('Что-то пошло не так');
-        dispatch({ type: LOGIN_ERROR, payload: error });
-      });
+      firebase.auth()
+        .signInAnonymously()
+        .then(() => {
+          history.push('/');
+          dispatch({ type: LOGIN_SUCCESS });
+        })
+        .catch((error) => {
+          toast.error('Что-то пошло не так');
+          dispatch({
+            type: LOGIN_ERROR,
+            payload: error,
+          });
+        });
       break;
 
     default:
-      break
+      break;
   }
 };
 
 export const signOut = () => (dispatch, getState, { getFirebase }) => {
   const firebase = getFirebase();
 
-  firebase.auth().signOut()
-  .then(() => {
-    dispatch({ type: SIGNOUT_SUCCESS });
-  })
-  .catch((error) => {
-    toast.error('Что-то пошло не так');
-    dispatch({ type: SIGNOUT_ERROR, payload: error });
-  });
+  firebase.auth()
+    .signOut()
+    .then(() => {
+      dispatch({ type: SIGNOUT_SUCCESS });
+    })
+    .catch((error) => {
+      toast.error('Что-то пошло не так');
+      dispatch({
+        type: SIGNOUT_ERROR,
+        payload: error,
+      });
+    });
 };

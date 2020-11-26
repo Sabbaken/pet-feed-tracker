@@ -1,5 +1,4 @@
-import { FETCH_ARTICLES_SUCCESS, FETCH_ARTICLES_ERROR, } from '../../constants/actionTypes';
-
+import { FETCH_ARTICLES_SUCCESS, FETCH_ARTICLES_ERROR } from '../../constants/actionTypes';
 
 const initialState = {
   articles: [],

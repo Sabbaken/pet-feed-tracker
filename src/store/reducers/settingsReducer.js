@@ -1,6 +1,6 @@
 import {
   UPDATE_DISPLAY_NAME_ERROR,
-  UPDATE_DISPLAY_NAME_SUCCESS
+  UPDATE_DISPLAY_NAME_SUCCESS,
 } from '../../constants/actionTypes';
 
 const initialState = {
@@ -8,7 +8,6 @@ const initialState = {
   initialList: [],
   filteredList: [],
 };
-
 
 export default (state = initialState, action) => {
   const { type, payload } = action;

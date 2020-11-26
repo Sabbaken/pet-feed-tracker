@@ -15,7 +15,7 @@ const OnboardingCard = () => {
         <div className="onboarding__description">Pet Feed Tracker позволяет следить за режимом питания вашего питомца</div>
       </div>
 
-      <img  className="onboarding__image" src="./images/dog.png" alt="woman with a dog" />
+      <img className="onboarding__image" src="./images/dog.png" alt="woman with a dog" />
 
       <nav className="onboarding__buttons">
         <button onClick={signinWithGoogle} className="btn btn-primary">

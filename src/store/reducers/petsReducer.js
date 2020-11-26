@@ -8,14 +8,13 @@ import {
   FETCH_FEEDS_BY_DAYS_ERROR,
   FETCH_FEEDS_BY_DAYS_SUCCESS,
   FETCH_INITIAL_ERROR,
-  FETCH_INITIAL_SUCCESS
+  FETCH_INITIAL_SUCCESS,
 } from '../../constants/actionTypes';
-
 
 const initialState = {
   pets: [],
   posting: false,
-  feedsByDays: {}
+  feedsByDays: {},
 };
 
 export default (state = initialState, action) => {
@@ -25,7 +24,7 @@ export default (state = initialState, action) => {
   switch (type) {
     case FETCH_INITIAL_SUCCESS:
       return {
-        ...state
+        ...state,
       };
 
     case FETCH_INITIAL_ERROR:
@@ -39,19 +38,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         posting: false,
-        feedsByDays: { ...state.feedsByDays, [payload.petId]: [...feedsByDays] }
+        feedsByDays: { ...state.feedsByDays, [payload.petId]: [...feedsByDays] },
       };
 
     case ADD_FEED_START:
       return {
         ...state,
-        posting: true
+        posting: true,
       };
 
     case ADD_FEED_ERROR:
       return {
         ...state,
-        posting: false
+        posting: false,
       };
 
     case ADD_PET_SUCCESS:
@@ -69,7 +68,7 @@ export default (state = initialState, action) => {
 
       return {
         ...state,
-        feedsByDays: { ...state.feedsByDays, [payload.petId]: [...feedsByDays] }
+        feedsByDays: { ...state.feedsByDays, [payload.petId]: [...feedsByDays] },
       };
 
     case FETCH_FEEDS_BY_DAYS_ERROR:

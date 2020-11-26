@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import {
   UPDATE_DISPLAY_NAME_ERROR,
-  UPDATE_DISPLAY_NAME_SUCCESS
+  UPDATE_DISPLAY_NAME_SUCCESS,
 } from '../../constants/actionTypes';
 
 export const updateProfile = (updatedProfile) => (dispatch, getState, { getFirestore, getFirebase }) => {

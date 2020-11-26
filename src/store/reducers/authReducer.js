@@ -2,13 +2,12 @@ import {
   LOGIN_ERROR,
   LOGIN_SUCCESS,
   SIGNOUT_ERROR,
-  SIGNOUT_SUCCESS
+  SIGNOUT_SUCCESS,
 } from '../../constants/actionTypes';
 
 const initialState = {
   error: null,
 };
-
 
 export default (state = initialState, action) => {
   const { type, payload } = action;

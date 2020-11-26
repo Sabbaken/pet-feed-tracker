@@ -11,8 +11,8 @@ export const sortFeedsByDaysOfWeek = (feeds) => {
     { name: 'Сб', feeds: [] },
   ];
 
-  let today = new Date();
-  let weekFromNow = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
+  const today = new Date();
+  const weekFromNow = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
 
   // feeds from past week by days of the week
   feeds.map((feed) => {
@@ -21,8 +21,8 @@ export const sortFeedsByDaysOfWeek = (feeds) => {
       feedsByDays[feed.date.getDay()].feeds.push(feed);
       return feed;
     }
-  })
+  });
 
   feedsByDays = rotateArray(feedsByDays, today.getDay() + 1);
   return feedsByDays;
-}
+};
