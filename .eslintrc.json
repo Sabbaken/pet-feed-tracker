@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "react-app",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "plugins": [
+        "react",
+        "only-warn"
+    ],
+    "rules": {
+    }
+}
